@@ -22,6 +22,7 @@ Package.onUse(function(api) {
     'ecmascript'
     ]);
   // 3rd party
+  api.use('tapfuse:instagram-api');
 
   api.addFiles('lib/tapfuse-instagram-caching.js', S);
 
