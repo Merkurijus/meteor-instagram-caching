@@ -1,12 +1,8 @@
 Package.describe({
   name: 'tapfuse:instagram-caching',
   version: '0.0.1',
-  // Brief, one-line summary of the package.
-  summary: '',
-  // URL to the Git repository containing the source code for this package.
-  git: '',
-  // By default, Meteor will default to using README.md for documentation.
-  // To avoid submitting documentation, set this field to null.
+  summary: 'User image caching from Instagram for Meteor',
+  git: 'https://github.com/TapFuse/meteor-instagram-caching.git',
   documentation: 'README.md'
 });
 
@@ -17,15 +13,15 @@ var CS = [C, S];
 Package.onUse(function(api) {
   api.versionsFrom('1.2.0.1');
   // Core
-  api.use([
-    'templating',
-    'ecmascript'
-    ]);
+  api.use(['templating','ecmascript','mongo']);
   // 3rd party
-  api.use('tapfuse:instagram-api');
+  api.use('tapfuse:instagram-api@1.0.0');
+  api.use('tapfuse:collection-global@1.0.0');
 
+  // Files
   api.addFiles('lib/tapfuse-instagram-caching.js', S);
-
+  api.addFiles('lib/globals-server.js', S);
+  api.addFiles('lib/globals-client.js', C);
 });
 
 Package.onTest(function(api) {
